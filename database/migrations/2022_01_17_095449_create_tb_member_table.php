@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTbUsersTable extends Migration
+class CreateTbMemberTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class CreateTbUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('tb_users', function (Blueprint $table) {
+        Schema::create('tb_member', function (Blueprint $table) {
             $table->id();
+            $table->string('nama',100);
+            $table->text('alamat');
+            $table->enum('jenis_kelamin',['L','P']);
+            $table->string('tlp',15);
             $table->timestamps();
         });
     }
@@ -26,6 +30,6 @@ class CreateTbUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tb_users');
+        Schema::dropIfExists('tb_member');
     }
 }

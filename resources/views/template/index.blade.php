@@ -3,8 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>neptune laundry</title>
-
+  <title>inilaundry</title>
+   
+   <!-- Bootstrap CSS -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+ 
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
@@ -12,6 +21,8 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('assets') }}/dist/css/adminlte.min.css">
 </head>
+
+
 <body class="hold-transition sidebar-mini">
 <!-- Site wrapper -->
 <div class="wrapper">
@@ -22,12 +33,12 @@
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
+      {{-- <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
-      </li>
+      </li> --}}
     </ul>
 
    
@@ -62,7 +73,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ url('dashboard') }}" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -70,18 +81,52 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="{{ url('outlet') }}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Outlet
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ url('member') }}" class="nav-link">
+              <i class="nav-icon far fa-circle text-danger"></i>
+              <p class="text">Member</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ url('user') }}" class="nav-link">
+              <i class="nav-icon far fa-circle text-warning"></i>
+              <p>User</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ url('paket') }}" class="nav-link">
+              <i class="nav-icon far fa-circle text-info"></i>
+              <p>Paket</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                List
+                Transaksi
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ url('transaksi') }}" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
-                  <p>Add Tugas</p>
+                  <p>Transaksi</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{{ url('detailTransaksi') }}" class="nav-link">
+                  <i class="fas fa-angle-right nav-icon"></i>
+                  <p>Detail Transaksi</p>
                 </a>
               </li>
             
@@ -91,11 +136,12 @@
     </div>
     <!-- /.sidebar -->
   </aside>
-
+{{-- KONTEN DISINI --}}
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    @yield('content')
+    @yield('dashboard')
+    @yield('member')
         
     <!-- /.content -->
   </div>
@@ -107,27 +153,31 @@
 {{-- @include('templates/footer') --}}
 
 
-<footer class="main-footer">
-    <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.1.0
-    </div>
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-  </footer>
+<!-- Optional JavaScript; choose one of the two! -->
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
-</div>
-<!-- jQuery -->
-<script src="{{ asset('assets') }}/plugins/jquery/jquery.min.js"></script>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+    
+    
+    <!-- jQuery -->
+
+    <script src="{{ asset('assets') }}/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="{{ asset('assets') }}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('assets') }}/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('assets') }}/dist/js/demo.js"></script>
+<script src="{{ asset('assets') }}/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="{{ asset('assets') }}/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="{{ asset('assets') }}/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+ 
 @stack('script')
 </body>
 </html>

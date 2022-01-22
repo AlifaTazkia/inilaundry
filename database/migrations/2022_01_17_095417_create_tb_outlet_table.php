@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTbPaketsTable extends Migration
+class CreateTbOutletTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class CreateTbPaketsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tb_pakets', function (Blueprint $table) {
+        Schema::create('tb_outlet', function (Blueprint $table) {
             $table->id();
+            $table->string('nama',100);
+            $table->text('alamat');
+            $table->string('tlp',15);
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ class CreateTbPaketsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tb_pakets');
+        Schema::dropIfExists('tb_outlet');
     }
 }
